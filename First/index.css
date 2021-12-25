@@ -1,0 +1,73 @@
+/* @import url("https://fonts.googleapis.com/css?family=Muli&display=swap"); */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  font-family: "Muli", sans-serif;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  /* 让container里面的所有元素都排成一排 */
+  display: flex;
+  width: 90vw;
+}
+.panel {
+  /* 设置背景图片大小，cover可以使背景图片把panel这个元素填满 */
+  background-size: cover;
+  /* 让图片位于中心 */
+  background-position: center;
+  /* 不需要图片重复 */
+  background-repeat: no-repeat;
+  height: 80vh;
+  border-radius: 50px;
+  /* 文字设置为白色 */
+  color: white;
+  /* 设置鼠标为手的形状 */
+  cursor: pointer;
+  /* 让每一个panel各占一份，平均 */
+  flex: 1;
+  /* 设置margin让各个panel之间有空隙*/
+  margin: 10px;
+  position: relative;
+  transition: all 0.7s ease-in 0s;
+}
+.pamel h3 {
+  font-size: 24px;
+  /* 因为文字放在图片上面，放在上一层的元素要用绝对定位 */
+  /* 绝对定位口诀“子绝对父相” */
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  /* 默认为不显示，当展开后才显示 */
+  opacity: 0;
+}
+/* 对被选中的项目再设置样式属性 */
+.panel.active {
+  flex: 5;
+}
+.panel.active h3 {
+  /* 被选中的panel的文字要被现实，所以透明度为100% */
+  opacity: 1;
+  /* 做一个过渡效果，当鼠标点击panel时panel会有一个过渡效果 */
+  transition: opacticy 0.3s ease-in 0.4s;
+}
+/* 响应式布局 */
+/* 如果浏览器窗口小于 480px, container的宽度进行变化 */
+@media (max-width: 480px) {
+  .container {
+    width: 100vw;
+  }
+  /* 第4个和第五个元素不显示 */
+  .panel:nth-of-type(4),
+  .panel::nth-of-type(5) {
+    display: none;
+  }
+}
