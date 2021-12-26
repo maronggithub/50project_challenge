@@ -1,6 +1,5 @@
-/* @import url("https://fonts.googleapis.com/css?family=Muli&display=swap"); */
-
-* {
+@import url("https://fonts.googleapis.com/css?family=Muli&display=swap");
+*/ * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -12,6 +11,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  overflow: hidden;
 }
 
 .container {
@@ -39,7 +39,7 @@ body {
   position: relative;
   transition: all 0.7s ease-in 0s;
 }
-.pamel h3 {
+.panel h3 {
   font-size: 24px;
   /* 因为文字放在图片上面，放在上一层的元素要用绝对定位 */
   /* 绝对定位口诀“子绝对父相” */
@@ -49,7 +49,7 @@ body {
   /* 默认为不显示，当展开后才显示 */
   opacity: 0;
 }
-/* 对被选中的项目再设置样式属性 */
+/* 对被选中的项目再设置样式属性，相对于没有被选中的项目扩大5倍 */
 .panel.active {
   flex: 5;
 }
@@ -65,9 +65,9 @@ body {
   .container {
     width: 100vw;
   }
-  /* 第4个和第五个元素不显示 */
+
   .panel:nth-of-type(4),
-  .panel::nth-of-type(5) {
+  .panel:nth-of-type(5) {
     display: none;
   }
 }
