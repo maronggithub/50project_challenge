@@ -51,7 +51,7 @@ body {
 }
 /* 对被选中的项目再设置样式属性，相对于没有被选中的项目扩大5倍 */
 .panel.active {
-  flex: 5;
+  flex: 8;
 }
 .panel.active h3 {
   /* 被选中的panel的文字要被现实，所以透明度为100% */

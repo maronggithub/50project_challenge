@@ -2,7 +2,6 @@
 <html lang="en">
   <head>
     <link rel="stylesheet" href="index.css" />
-    <script type="text/javascript" src="index.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Expending cards</title>
@@ -26,6 +25,13 @@
         <h3>Mountains - Clouds</h3>
       </div>
     </div>
+    <!-- 注意，这里要把js文件放在body元素的最下面，因为：
+    When you put the script in an external file and then load that external script from the
+    
+    <head>, it loads BEFORE the DOM is ready. That means that if your script tries to reference elements in the page like
+      you are with document.querySelectorAll(), those elements will not exist yet.
+      to right before </body>. Then, all the elements of the page will be parsed and in the DOM before your script runs-->
+    <script type="text/javascript" src="index.js"></script>
   </body>
 
 </html>
