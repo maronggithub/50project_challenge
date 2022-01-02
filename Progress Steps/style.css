@@ -1,0 +1,91 @@
+/* 因为有些颜色会重复多次使用，所以在根选择器里面定义这些颜色 */
+:root {
+  --line-border-file: #3498db;
+  --line-border-empty: #e0e0e0;
+}
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  background-color: #f6f7fb;
+  display: flex;
+  font-family: "Muli", sans-serif;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  height: 100vh;
+  flex-direction: column;
+}
+.container {
+  /* 让容器中的字体剧中 */
+  text-align: center;
+}
+.progress-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* 让进程图标和下面的按钮之间有距离 */
+  margin-bottom: 30px;
+  width: 350px;
+  max-width: 100%;
+  position: relative;
+}
+.progress-container::before {
+  content: "";
+  background-color: var(--line-border-empty);
+  height: 4px;
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  /* Transform属性应用于元素的2D或3D转换。这个属性允许你将元素旋转，缩放，移动，倾斜等。 */
+  transform: translateY(-50%);
+  z-index: -1;
+}
+.progress {
+  background-color: var(--line-border-file);
+  /* 因为蓝色的线是浮在上面的，所以采用绝对定位 */
+  position: absolute;
+  height: 4px;
+  /* 一开始蓝色线不显示，所以宽度设置为0就行 */
+  width: 0%;
+  transform: translateY(-50%);
+  top: 50%;
+  z-index: -1;
+}
+.circle {
+  background-color: white;
+  color: #999;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid var(--line-border-empty);
+}
+.circle.active {
+  border-color: var(--line-border-file);
+}
+.btn {
+  background-color: var(--line-border-file);
+  color: white;
+  border-radius: 5px;
+  padding: 8px 30px;
+  border: 0;
+  font-size: 14px;
+  margin: 5px;
+}
+.btn:active {
+  /* 当按钮被点击时，会略微缩小 */
+  transform: scale(0.98);
+}
+.btn:focus {
+  outline: 0;
+}
+/* 第一个按钮默认是无法点击的，因为第一个按钮刚开始没有前一个元素 */
+.btn:disabled {
+  background-color: var(--line-border-empty);
+  cursor: not-allowed;
+}
