@@ -53,6 +53,7 @@ body {
   transform: translateY(-50%);
   top: 50%;
   z-index: -1;
+  transition: width 0.3s ease;
 }
 .circle {
   background-color: white;
@@ -64,6 +65,7 @@ body {
   justify-content: center;
   align-items: center;
   border: 3px solid var(--line-border-empty);
+  transition: border-color 0.3s ease;
 }
 .circle.active {
   border-color: var(--line-border-file);
@@ -76,6 +78,7 @@ body {
   border: 0;
   font-size: 14px;
   margin: 5px;
+  cursor: pointer;
 }
 .btn:active {
   /* 当按钮被点击时，会略微缩小 */
