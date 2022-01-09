@@ -1,0 +1,132 @@
+@import url("https://fonts.googleapis.com/css?family=Lato&display=swap");
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Lato", sans-serif;
+  /* 把背景颜色设置为黑色，是因为当container旋转过后就露出了背景色 */
+  background-color: #333;
+  color: #222;
+  overflow-x: hidden;
+}
+.container {
+  background-color: #fafafa;
+  transform-origin: top left; /* 因为页面以左上角为旋转轴进行旋转 */
+  transition: transform 0.3s linear;
+  width: 100vw;
+  padding: 50px;
+  min-height: 100vh;
+}
+.container.show-nav {
+  transform: rotate(-20deg);
+}
+.circle-container {
+  position: fixed;
+  top: -100px;
+  left: -100px;
+}
+.circle {
+  background-color: #ff7979;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  position: relative;
+  /* transition: transform 0.3s ease-in linear; */
+  transition: transform 0.5s linear;
+}
+.container.show-nav .circle {
+  transform: rotate(-70deg);
+}
+.circle button {
+  /* 因为按钮浮在圆圈上面，所以要绝对定位 */
+  position: absolute;
+  cursor: pointer;
+  top: 50%;
+  left: 50%;
+  color: #fff;
+  background: transparent;
+  height: 100px;
+  font-size: 25px;
+  border: 0;
+}
+.circle button:focus {
+  outline: none;
+}
+/* 因为圆圈不随页面滚动改变位置，所以要给圆圈一个固定定位，圆圈放在circle-container里面 */
+
+.circle button#open {
+  left: 60%;
+}
+.circle button#close {
+  /* 设置旋转中心为左上角 */
+  transform-origin: top left;
+  transform: rotate(90deg);
+  top: 60%;
+}
+.container.show-nav + nav li {
+  transform: translateX(0);
+  transition-delay: 0.3s;
+}
+nav {
+  position: fixed;
+  bottom: 40px;
+  left: 0;
+  z-index: 100;
+}
+
+nav ul {
+  list-style-type: none;
+  padding-left: 30px;
+}
+nav ul li {
+  text-transform: uppercase;
+  margin: 40px 0;
+  color: white;
+  /* 因为要让nav到页面外面去，所以要让它向左移动自身的宽度 */
+  transform: translateX(-100%);
+  transition: transform 0.15s ease-in;
+}
+nav ul li i {
+  font-size: 20px;
+  margin-right: 10px;
+}
+nav li:nth-child(2) {
+  margin-left: 15px;
+  transform: translateX(-150%);
+}
+nav li:nth-child(3) {
+  margin-left: 30px;
+  transform: translateX(-200%);
+}
+nav a {
+  color: #fafafa;
+  text-decoration: none;
+  transition: all 0.5s;
+}
+nav a:hover {
+  color: #ff7979;
+  font-weight: bold;
+}
+.content img {
+  max-width: 100%;
+}
+
+.content {
+  max-width: 1000px;
+  margin: 50px auto;
+}
+.content p {
+  color: #333;
+  line-height: 1.5;
+}
+.content small {
+  color: #555;
+  font-style: italic;
+}
+.content h3 {
+  margin: 20px 0;
+}
+
+/* 当点击打开导航栏按钮后有三个东西在动，第一container页面，第二圆圈会旋转，第三导航栏会移动到页面中 */
