@@ -1,0 +1,53 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}
+body {
+  background-image: linear-gradient(to right, #7d5fff, #7158e2);
+  font-family: "Roboto", sans-serif;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+}
+.search {
+  height: 50px;
+  position: relative;
+}
+.search input {
+  background-color: white;
+  border: 0;
+  font-size: 18px;
+  padding: 15px;
+  /* 刚进入网页，搜索栏的宽度高度一致，当点击的时候，宽度增加，所以最开始，宽高设置为一致 */
+  height: 50px;
+  width: 50px;
+  transition: width 0.3s ease;
+}
+.btn {
+  background-color: white;
+  border: 0;
+  cursor: pointer;
+  padding: 15px;
+  width: 50px;
+  height: 50px;
+  transition: transform 0.3s ease;
+  /* 因为要把按钮覆盖在搜索框上面，所以用绝对定位 */
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 24px;
+}
+/* 因为点击的时候会出外扩，所以要把外扩设置为0 */
+.btn:focus,
+input:focus {
+  outline: 0;
+}
+.search.active .input {
+  width: 200px;
+}
+.search.active .btn {
+  transform: translateX(198px);
+}
