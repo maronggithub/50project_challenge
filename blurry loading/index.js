@@ -4,7 +4,7 @@ const bg=document.querySelector('.bg');
 // 因为数字在变化，所以定义一个变量，用来存放变化的数字
 let load=0;
 
-// 用一个定时器，让数字在规定时间内增加到百分之百,
+// 用一个定时器，让数字增加到百分之百,
 let time=setInterval(blurring,30)  //每隔30s执行blurring这个函数
 
 function blurring(){
