@@ -1,6 +1,6 @@
 :root {
   --left-bg-color: rgba(87, 84, 236, 0.7);
-  --right-bg-color: rgba(43, 43, 43, 0.8);
+  --right-bg-color: rgba(43, 43, 43, 0.7);
   --left-btn-hover-color: rgba(87, 84, 236, 1);
   --right-btn-hover-color: rgba(28, 122, 28, 1);
   /* 当鼠标被放置的部分占75%，另一个占25% */
@@ -64,7 +64,7 @@ h1 {
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: var(--right-bg-color);
+  background-color: var(--right-bg-color); /*给左边的图片上再铺一层透明的底色*/
 }
 .btn {
   position: absolute;
